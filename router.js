@@ -1,6 +1,9 @@
 const home = require('./home');
 const cartelera = require('./en_cartelera');
 const masVotadas = require('./mas_votadas');
+const sucursales = require('./sucursales');
+const contacto = require('./contacto');
+const preg_freq = require('./preg_freq');
 
 const router = {
 
@@ -16,19 +19,21 @@ routes: function(req,res){
             case '/en-cartelera':
                 res.end(cartelera.titulo() + '\n \n' + cartelera.totalPeliculas() + '\n \n' + cartelera.listadoPeliculas());
                 break;
-            // mas votadas ==>
+            // mas votadas ==> TERMINADO
             case '/mas-votadas':
-                res.end(masVotadas.titulo() + '\n \n' + masVotadas.totalPeliculasMasVotadas());
+                res.end(masVotadas.titulo() + '\n \n' + masVotadas.totalPeliculasMasVotadas() + '\n \n' + masVotadas.ratingPromedio() + '\n \n' + masVotadas.listadoPeliculas());
                 break;
-            // sucursales ==>
+            // sucursales ==> TERMINADO
             case '/sucursales':
-                res.end('Sucursales');
+                res.end(sucursales.titulo() + '\n \n' + sucursales.totalSalas() + '\n \n' + sucursales.listadoSalas());
                 break;
+            // contacto ==> TERMINADO
             case '/contacto':
-                res.end('Contacto');
+                res.end(contacto.titulo());
                 break;
+            // preg-freq ==> TERMINADO
             case '/preguntas-frecuentes':
-                res.end('Preguntas Frecuentes');
+                res.end(preg_freq.titulo() + '\n \n' + preg_freq.totalPreguntas() + '\n \n' + preg_freq.listadosPreguntas());
                 break;
             default:
                 res.end('404 not found')

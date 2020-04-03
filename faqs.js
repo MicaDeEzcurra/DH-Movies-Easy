@@ -20,3 +20,5 @@ const faqs = [
         faq_answer: "Los medios de pago online son tarjeta de débito y crédito.Podes consultar todos los medios de pago online disponibles desde la web de MercadoPago.En boletería podes también pagar en efectivo."
     }
 ];
+
+module.exports = faqs ; 

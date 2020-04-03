@@ -24,3 +24,5 @@ const theaters = [
         total_rooms: 2
     }
 ];
+
+module.exports = theaters ;

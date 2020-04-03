@@ -17,7 +17,11 @@ titulo: function(){
 
 totalPeliculasMasVotadas: function(){
     let arrayPelisMasVotadas = movies.map(function (pelicula) {
-            return 'Titulo: ' + pelicula.title + '\n';
+        if(pelicula.vote_average >= 7){
+        return 'Titulo: ' + pelicula.title + '\n';
+        }else{
+            return '' ;
+        };
     });
 
     let stringPelisMasVotadas = '';
@@ -25,6 +29,37 @@ totalPeliculasMasVotadas: function(){
      stringPelisMasVotadas = stringPelisMasVotadas + pelicula + '\n';
     }) ;
     return stringPelisMasVotadas ;
+},
+
+ratingPromedio: function(){ //aca saque el rating promedio de las peliculas mas votadas
+    let arrayRatings = movies.map(function (pelicula){
+        return pelicula.vote_average ;
+    });
+    let sumaRatings = arrayRatings.reduce(function(acum,num){
+        return acum + num ;
+    }); 
+
+    let stringRatingPromedio = '' ;
+    stringRatingPromedio = sumaRatings / arrayRatings.length ;
+
+    return 'Rating Promedio: ' + stringRatingPromedio ;
+},
+
+listadoPeliculas: function(){
+    let arrayPelisMasVotadas = movies.map(function (pelicula) {
+        if (pelicula.vote_average >= 7) {
+            return 'Titulo: ' + pelicula.title + '\n' + 'Rating: ' + pelicula.vote_average + '\n' + 'Reseña: ' + pelicula.overview ;
+        } else {
+            return '';
+        };
+    });
+
+    let stringPelisMasVotadas = '';
+    arrayPelisMasVotadas.forEach(function (pelicula) { //el param de los callbacks en los metodos de arrays representa cada posicion del array q estas iterando 
+        stringPelisMasVotadas = stringPelisMasVotadas + pelicula + '\n';
+    });
+    return stringPelisMasVotadas;
+
 }
 
 };
